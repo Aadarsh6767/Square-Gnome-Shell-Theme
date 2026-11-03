@@ -1,0 +1,456 @@
+/*
+ * Square_color_theme-Light GNOME Shell stylesheet.
+ * Select it under Tweaks > Appearance > Shell or use Theme Color Sync.
+ * It changes Shell UI colors, Quick Settings tiles/icons, calendar, hover
+ * states, and corner shapes. It does not set or change the global Icons theme.
+ * Square_color_theme has its own dark stylesheet.
+ */
+
+/* =========================================================
+   1. UNIVERSAL SHARP CORNERS (Zero Rounding Anywhere)
+   ========================================================= */
+/* Selectors: *, *:hover, *:focus, *:active, *:checked */
+*,
+*:hover,
+*:focus,
+*:active,
+*:checked {
+  border-radius: 0px !important;
+  -st-corner-radius: 0px !important;
+}
+
+/* =========================================================
+   2. TOP PANEL BAR
+   ========================================================= */
+/* Selectors: #panel, #panel .panel-corner */
+#panel,
+#panel .panel-corner {
+  background-color: #ffffff !important;
+  color: #ffffff !important;
+  border-radius: 0px !important;
+}
+
+/* Remove the horizontal divider beneath the top panel */
+#panel {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Use blue panel text for readability on the white panel */
+#panel,
+#panel .panel-button,
+#panel .panel-button .clock {
+  color: #1e5aa8 !important;
+}
+
+#panel .system-status-icon {
+  color: #7d8495 !important;
+}
+
+/* Keep hover subtle and transparent so the existing panel state stays visible */
+#panel .panel-button:hover {
+  background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+/* Keep the pressed state transparent so the hover overlay remains subtle */
+#panel .panel-button:active {
+  background-color: transparent !important;
+}
+
+/* Keep the clock popup light in light mode */
+#panel .panel-button.clock-display:active,
+#panel .panel-button.clock-display:checked {
+  background-color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+/* =========================================================
+   3. POPUP MENUS & PANELS (Light Background)
+   ========================================================= */
+/* Selectors: .popup-menu, .popup-menu-content, .popup-menu-boxpointer,
+   .quick-settings-panel, .quick-settings, .menu, .datemenu-popover,
+   .date-menu-popover, .calendar-menu */
+.popup-menu,
+.popup-menu-content,
+.popup-menu-boxpointer,
+.quick-settings-panel,
+.quick-settings,
+.menu,
+.datemenu-popover,
+.date-menu-popover,
+.calendar-menu {
+  background-color: #f6f7f9 !important;
+  border-radius: 0px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Selector: .popup-menu-item:hover */
+.popup-menu-item:hover {
+  background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+/* Selectors: .popup-menu-arrow, .popup-menu-boxpointer */
+.popup-menu-arrow,
+.popup-menu-boxpointer {
+  -arrow-border-radius: 0px !important;
+}
+
+/* =========================================================
+   4. QUICK SETTINGS: BUTTONS, TOGGLES & SLIDERS
+   ========================================================= */
+/* Top Utility Icon Buttons (Settings, Lock, Power, Screenshot) */
+/* Selectors: .quick-settings-system-item,
+   .quick-settings-system-item > StButton, .icon-button */
+.quick-settings-system-item,
+.quick-settings-system-item > StButton,
+.icon-button {
+  background-color: #ffffff !important;
+  border: 1px solid #d9dce2 !important;
+  border-radius: 0px !important;
+}
+
+/* Selectors: .quick-settings-system-item:hover, .icon-button:hover */
+.quick-settings-system-item:hover,
+.icon-button:hover {
+  background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+/* Keep all Quick Settings utility, slider, submenu, and toggle icons visible in either color scheme */
+.quick-settings-system-item StIcon,
+.quick-settings-system-item > StButton StIcon,
+.icon-button StIcon,
+.quick-settings StIcon,
+.quick-settings-panel StIcon,
+.quick-slider StIcon,
+.quick-toggle StIcon,
+.quick-toggle-menu StIcon,
+.quick-toggle-arrow StIcon {
+  color: #da3d2f !important;
+  icon-size: 1.091em !important;
+  -st-icon-style: symbolic;
+}
+
+/* Keep the volume and brightness slider tracks visible in either color scheme */
+.slider {
+  color: #da3d2f !important;
+  -barlevel-height: 4px;
+  -barlevel-background-color: #d0d3d8;
+  -barlevel-active-background-color: #da3d2f;
+  -barlevel-overdrive-color: #da3d2f;
+}
+
+/* Battery Indicator Header Box */
+/* Selectors: .battery-item, .quick-toggle-battery */
+.battery-item,
+.quick-toggle-battery {
+  background-color: #dbe4ea !important;
+  border: 1px solid #c9d4dc !important;
+}
+
+/* Selectors: .battery-item StIcon, .quick-toggle-battery StIcon */
+.battery-item StIcon,
+.quick-toggle-battery StIcon {
+  color: #a82e2e !important;
+}
+
+/* Inactive Toggles (Muted soft lilac-gray) */
+/* Selectors: .quick-toggle, .quick-toggle-menu */
+.quick-toggle,
+.quick-toggle-menu {
+  background-color: #e2e4ef !important;
+  border: 1px solid #d0d3e2 !important;
+  border-radius: 0px !important;
+}
+
+/* Selector: .quick-toggle:hover */
+.quick-toggle:hover {
+  background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+/* Render leading Quick Toggle icons, including Do Not Disturb and Night Light, symbolically */
+.quick-toggle .quick-toggle-icon {
+  -st-icon-style: symbolic;
+}
+
+/* Submenu Arrow Buttons on Inactive Toggles */
+/* Selector: .quick-toggle-arrow */
+.quick-toggle-arrow {
+  background-color: #ffffff !important;
+  color: #7d8495 !important;
+  border-radius: 0px !important;
+  border-left: 1px solid #d0d3e2 !important;
+}
+
+/* Active / Checked Quick Settings toggles use a light gray in this light theme */
+/* Selectors: .quick-toggle:checked, .quick-toggle:active,
+   .quick-toggle.checked */
+.quick-toggle:checked,
+.quick-toggle:active,
+.quick-toggle.checked {
+  background-color: #e2e4ef !important;
+  border: 1px solid #d0d3e2 !important;
+}
+
+/* Keep the active Wi-Fi submenu divider transparent instead of accent green */
+.quick-toggle-has-menu:checked .quick-toggle-separator {
+  background-color: transparent !important;
+}
+
+/* Keep active toggle icons bright red while showing the active state in gray */
+.quick-toggle:checked StIcon,
+.quick-toggle.checked StIcon {
+  color: #ff0000 !important;
+}
+
+/* Show active Quick Settings toggle labels in blue without changing the tile background */
+.quick-toggle:checked StLabel,
+.quick-toggle.checked StLabel,
+.quick-toggle:checked .quick-toggle-title,
+.quick-toggle.checked .quick-toggle-title,
+.quick-toggle:checked .quick-toggle-subtitle,
+.quick-toggle.checked .quick-toggle-subtitle {
+  color: #1e5aa8 !important;
+}
+
+/* Selector: .quick-toggle:checked .quick-toggle-arrow */
+.quick-toggle:checked .quick-toggle-arrow {
+  background-color: #ffffff !important;
+  color: #7d8495 !important;
+  border-radius: 0px !important;
+  border-left: 1px solid #d0d3e2 !important;
+}
+
+/* Selectors: text labels inside light popup menus and Quick Settings controls */
+.popup-menu StLabel,
+.quick-settings StLabel,
+.quick-settings-panel StLabel,
+.quick-toggle StLabel,
+.quick-toggle-menu StLabel,
+.battery-item StLabel,
+.icon-button StLabel,
+.quick-toggle .quick-toggle-title,
+.quick-toggle .quick-toggle-subtitle {
+  color: #1e5aa8 !important;
+  font-weight: 700 !important;
+}
+
+/* Highlight today's date in the calendar */
+.calendar .calendar-day.calendar-today,
+.calendar .calendar-day:selected,
+.calendar .calendar-day:active,
+.calendar .calendar-day:checked {
+  color: #1e5aa8 !important;
+  background-color: #e2e4ef !important;
+  box-shadow: inset 0 0 0 2px #ffa500 !important;
+}
+
+/* Keep calendar dates unchanged on hover while retaining navigation feedback */
+.calendar .calendar-month-header .pager-button:hover,
+.datemenu-today-button:hover {
+  background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+/* =========================================================
+   5. SCREENSHOT UI 
+   ========================================================= */
+/* Selector: .screenshot-ui-window-selector */
+.screenshot-ui-window-selector {
+  background-color: #181d20;
+}
+
+/* Selector: .screenshot-ui-window-selector-window:hover
+   .screenshot-ui-window-selector-window-border */
+.screenshot-ui-window-selector-window:hover
+  .screenshot-ui-window-selector-window-border {
+  border-color: rgba(255, 165, 0, 0.65);
+}
+
+/* Selector: .screenshot-ui-window-selector-window:checked
+   .screenshot-ui-window-selector-window-border */
+.screenshot-ui-window-selector-window:checked
+  .screenshot-ui-window-selector-window-border {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+/* Selector: .screenshot-ui-window-selector-window:checked
+   .screenshot-ui-window-selector-check */
+.screenshot-ui-window-selector-window:checked
+  .screenshot-ui-window-selector-check {
+  color: #181d20;
+  background-color: transparent;
+}
+
+/* =========================================================
+   6. EXTENSIONS & DOCK
+   ========================================================= */
+/* Selectors: .openweather-current-databox-captions,
+   .openweather-current-databox-values, .openweather-current-summarybox,
+   .openweather-forecast-summary, .openweather-forecast-temperature,
+   .openweather-forecast-day */
+.openweather-current-databox-captions,
+.openweather-current-databox-values,
+.openweather-current-summarybox,
+.openweather-forecast-summary,
+.openweather-forecast-temperature,
+.openweather-forecast-day {
+  color: #1e5aa8;
+}
+
+/* Pop_OS COSMIC Dock styling */
+/* Selector: .cosmic-dock #dock */
+.cosmic-dock #dock {
+  border-radius: 0px !important;
+  border: 0 !important;
+  background-color: #111517;
+  margin: 4px !important;
+}
+
+/* Keep the Ubuntu Dock background fully transparent */
+#dashtodockContainer.dashtodock #dash .dash-background {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Selector: .cosmic-dock.extended #dock */
+.cosmic-dock.extended #dock {
+  border-radius: 0px !important;
+  margin: 0 !important;
+}
+
+/* Selector: .cosmic-dock.extended.side #dock */
+.cosmic-dock.extended.side #dock {
+  border-top-width: 0 !important;
+  border-bottom-width: 0 !important;
+}
+
+/* Selector: .cosmic-dock.extended.side.left #dock */
+.cosmic-dock.extended.side.left #dock {
+  border-left-width: 0 !important;
+}
+
+/* Selector: .cosmic-dock.extended.side.right #dock */
+.cosmic-dock.extended.side.right #dock {
+  border-right-width: 0 !important;
+}
+
+/* Selector: .cosmic-dock.extended.bottom #dock */
+.cosmic-dock.extended.bottom #dock {
+  border-bottom-width: 0 !important;
+  border-left-width: 0 !important;
+  border-right-width: 0 !important;
+}
+
+/* Selectors: .cosmic-dock .app-well-app:hover .overview-icon,
+   .cosmic-dock .app-well-app:focus .overview-icon,
+   .cosmic-dock .app-well-app:selected .overview-icon */
+.cosmic-dock .app-well-app:hover .overview-icon,
+.cosmic-dock .app-well-app:focus .overview-icon,
+.cosmic-dock .app-well-app:selected .overview-icon {
+  border-radius: 0px !important;
+}
+
+/* Keep the orange hover overlay visible over selected and submenu controls */
+#panel .panel-button:hover,
+#panel .panel-button:active:hover,
+#panel .panel-button.clock-display:checked:hover,
+.popup-menu-item:hover,
+.quick-settings-system-item:hover,
+.icon-button:hover,
+.quick-toggle:hover,
+.quick-toggle:checked:hover,
+.quick-toggle.checked:hover,
+.quick-toggle:active:hover,
+.quick-toggle-has-menu .quick-toggle-menu-button:hover,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked:hover,
+.calendar .calendar-month-header .pager-button:hover,
+.datemenu-today-button:hover,
+.message-list-controls .message-list-clear-button:hover,
+.message .message-header .message-close-button:hover {
+  background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+.screenshot-ui-window-selector-window:hover
+  .screenshot-ui-window-selector-window-border {
+  border-color: rgba(255, 165, 0, 0.65) !important;
+}
+
+/* Keep the clock panel button hover transparent */
+#panel .panel-button.clock-display:hover,
+#panel .panel-button.clock-display:checked:hover,
+#panel .panel-button.clock-display:active:hover {
+  background-color: transparent !important;
+}
+
+/* Keep notification text blue with no hover tint */
+.message .message-header {
+  color: #1e5aa8 !important;
+}
+
+.message .message-header .message-source-title,
+.message .message-box .message-content .message-title {
+  color: #1e5aa8 !important;
+}
+
+.message .message-header .event-time {
+  color: #1e5aa8 !important;
+}
+
+.message .message-box .message-content,
+.message .message-box .message-content StLabel {
+  color: #1e5aa8 !important;
+}
+
+StLabel,
+StEntry,
+StText {
+  color: #1e5aa8 !important;
+}
+
+.message:hover,
+.message:second-in-stack:hover,
+.message:lower-in-stack:hover {
+  background-color: transparent !important;
+}
+
+/* Keep checked split-toggle fills consistent with the light toggle tiles */
+.quick-toggle-has-menu:checked,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked:hover,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked:active,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked:focus {
+  background-color: #e2e4ef !important;
+}
+
+.quick-toggle-has-menu:checked .quick-toggle-separator {
+  background-color: transparent !important;
+}
+
+/* Give each utility button the same light tile fill and border as the toggles */
+.quick-settings-system-item {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.quick-settings-system-item > StButton,
+.quick-settings-system-item .icon-button,
+.icon-button {
+  background-color: #e2e4ef !important;
+  border-color: #d0d3e2 !important;
+}
+
+.quick-settings-system-item:hover,
+.quick-settings-system-item > StButton:hover,
+.quick-settings-system-item .icon-button:hover,
+.icon-button:hover {
+  background-color: transparent !important;
+}
+
+.quick-settings-system-item > StButton:hover,
+.quick-settings-system-item .icon-button:hover,
+.icon-button:hover {
+  border-color: #ffa500 !important;
+}
