@@ -1,0 +1,602 @@
+/*
+ * Square_color_theme: GNOME Shell dark theme, based on MY_Theme-Dark.
+ * Select "Square_color_theme" under Tweaks > Appearance > Shell to use it.
+ * This stylesheet changes Shell UI surfaces, text, controls, calendar, and
+ * hover states. It does not set or change the global Icons theme.
+ * GNOME Shell User Themes extension is required to load this custom theme.
+ */
+
+/* =========================================================
+   1. UNIVERSAL SHARP CORNERS (Zero Rounding Anywhere)
+   ========================================================= */
+/* Selectors: *, *:hover, *:focus, *:active, *:checked */
+*,
+*:hover,
+*:focus,
+*:active,
+*:checked {
+    border-radius: 0px !important;
+    -st-corner-radius: 0px !important;
+}
+
+/* =========================================================
+   2. TOP PANEL BAR
+   ========================================================= */
+/* Selectors: #panel, #panel .panel-corner */
+#panel,
+#panel .panel-corner {
+    background-color: #ffffff !important;
+    color: #ffffff !important;
+    border-radius: 0px !important;
+}
+
+/* Remove the horizontal divider beneath the top panel */
+#panel {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Use black panel text and icons for readability on the white panel */
+#panel,
+#panel .panel-button,
+#panel .panel-button .clock,
+#panel .system-status-icon {
+    color: #000000 !important;
+}
+
+/* Keep hover subtle and transparent so the existing panel state stays visible */
+#panel .panel-button:hover {
+background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+/* Preserve the current pressed-state color */
+#panel .panel-button:active {
+    background-color: #add8e6 !important;
+}
+
+/* Keep the clock popup light in light mode */
+#panel .panel-button.clock-display:active,
+#panel .panel-button.clock-display:checked {
+    background-color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+/* =========================================================
+   3. POPUP MENUS & PANELS (Light Background)
+   ========================================================= */
+/* Selectors: .popup-menu, .popup-menu-content, .popup-menu-boxpointer,
+   .quick-settings-panel, .quick-settings, .menu, .datemenu-popover,
+   .date-menu-popover, .calendar-menu */
+.popup-menu,
+.popup-menu-content,
+.popup-menu-boxpointer,
+.quick-settings-panel,
+.quick-settings,
+.menu,
+.datemenu-popover,
+.date-menu-popover,
+.calendar-menu {
+    background-color: #f6f7f9 !important;
+    border-radius: 0px !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Selector: .popup-menu-item:hover */
+.popup-menu-item:hover {
+    background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+/* Selectors: .popup-menu-arrow, .popup-menu-boxpointer */
+.popup-menu-arrow,
+.popup-menu-boxpointer {
+    -arrow-border-radius: 0px !important;
+}
+
+/* =========================================================
+   4. QUICK SETTINGS: BUTTONS, TOGGLES & SLIDERS
+   ========================================================= */
+/* Top Utility Icon Buttons (Settings, Lock, Power, Screenshot) */
+/* Selectors: .quick-settings-system-item,
+   .quick-settings-system-item > StButton, .icon-button */
+.quick-settings-system-item,
+.quick-settings-system-item > StButton,
+.icon-button {
+    background-color: #ffffff !important;
+    border: 1px solid #d9dce2 !important;
+    border-radius: 0px !important;
+}
+
+/* Selectors: .quick-settings-system-item:hover, .icon-button:hover */
+.quick-settings-system-item:hover,
+.icon-button:hover {
+    background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+/* Keep all Quick Settings utility, slider, submenu, and toggle icons visible in either color scheme */
+.quick-settings-system-item StIcon,
+.quick-settings-system-item > StButton StIcon,
+.icon-button StIcon,
+.quick-settings StIcon,
+.quick-settings-panel StIcon,
+.quick-slider StIcon,
+.quick-toggle StIcon,
+.quick-toggle-menu StIcon,
+.quick-toggle-arrow StIcon {
+    color: #da3d2f !important;
+    icon-size: 1.091em !important;
+    -st-icon-style: symbolic;
+}
+
+/* Keep the volume and brightness slider tracks visible in either color scheme */
+.slider {
+    color: #da3d2f !important;
+    -barlevel-height: 4px;
+    -barlevel-background-color: #d0d3d8;
+    -barlevel-active-background-color: #da3d2f;
+    -barlevel-overdrive-color: #da3d2f;
+}
+
+/* Battery Indicator Header Box */
+/* Selectors: .battery-item, .quick-toggle-battery */
+.battery-item,
+.quick-toggle-battery {
+    background-color: #dbe4ea !important;
+    border: 1px solid #c9d4dc !important;
+}
+
+/* Selectors: .battery-item StIcon, .quick-toggle-battery StIcon */
+.battery-item StIcon,
+.quick-toggle-battery StIcon {
+    color: #a82e2e !important;
+}
+
+/* Inactive Toggles (Muted soft lilac-gray) */
+/* Selectors: .quick-toggle, .quick-toggle-menu */
+.quick-toggle,
+.quick-toggle-menu {
+    background-color: #e2e4ef !important;
+    border: 1px solid #d0d3e2 !important;
+    border-radius: 0px !important;
+}
+
+/* Selector: .quick-toggle:hover */
+.quick-toggle:hover {
+    background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+/* Render leading Quick Toggle icons, including Do Not Disturb and Night Light, symbolically */
+.quick-toggle .quick-toggle-icon {
+    -st-icon-style: symbolic;
+}
+
+/* Submenu Arrow Buttons on Inactive Toggles */
+/* Selector: .quick-toggle-arrow */
+.quick-toggle-arrow {
+    background-color: #ffffff !important;
+    color: #7d8495 !important;
+    border-radius: 0px !important;
+    border-left: 1px solid #d0d3e2 !important;
+}
+
+/* Active / Checked Quick Settings toggles use a light gray in this light theme */
+/* Selectors: .quick-toggle:checked, .quick-toggle:active,
+   .quick-toggle.checked */
+.quick-toggle:checked,
+.quick-toggle:active,
+.quick-toggle.checked {
+    background-color: #e2e4ef !important;
+    border: 1px solid #d0d3e2 !important;
+}
+
+/* Keep active toggle icons bright red while showing the active state in gray */
+.quick-toggle:checked StIcon,
+.quick-toggle.checked StIcon {
+    color: #ff0000 !important;
+}
+
+/* Show active Quick Settings toggle labels in orange without changing the tile background */
+.quick-toggle:checked StLabel,
+.quick-toggle.checked StLabel,
+.quick-toggle:checked .quick-toggle-title,
+.quick-toggle.checked .quick-toggle-title,
+.quick-toggle:checked .quick-toggle-subtitle,
+.quick-toggle.checked .quick-toggle-subtitle {
+    color: #ffa500 !important;
+}
+
+/* Selector: .quick-toggle:checked .quick-toggle-arrow */
+.quick-toggle:checked .quick-toggle-arrow {
+    background-color: #ffffff !important;
+    color: #7d8495 !important;
+    border-radius: 0px !important;
+    border-left: 1px solid #d0d3e2 !important;
+}
+
+/* Selectors: text labels inside light popup menus and Quick Settings controls */
+.popup-menu StLabel,
+.quick-settings StLabel,
+.quick-settings-panel StLabel,
+.quick-toggle StLabel,
+.quick-toggle-menu StLabel,
+.battery-item StLabel,
+.icon-button StLabel,
+.quick-toggle .quick-toggle-title,
+.quick-toggle .quick-toggle-subtitle {
+    color: #ff0000 !important;
+    font-weight: 700 !important;
+}
+
+/* =========================================================
+   5. SCREENSHOT UI 
+   ========================================================= */
+/* Selector: .screenshot-ui-window-selector */
+.screenshot-ui-window-selector {
+    background-color: #181d20;
+}
+
+/* Selector: .screenshot-ui-window-selector-window:hover
+   .screenshot-ui-window-selector-window-border */
+.screenshot-ui-window-selector-window:hover .screenshot-ui-window-selector-window-border {
+    border-color: rgba(255, 165, 0, 0.65);
+}
+
+/* Selector: .screenshot-ui-window-selector-window:checked
+   .screenshot-ui-window-selector-window-border */
+.screenshot-ui-window-selector-window:checked .screenshot-ui-window-selector-window-border {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+/* Selector: .screenshot-ui-window-selector-window:checked
+   .screenshot-ui-window-selector-check */
+.screenshot-ui-window-selector-window:checked .screenshot-ui-window-selector-check {
+    color: #181d20;
+    background-color: transparent;
+}
+
+/* =========================================================
+   6. EXTENSIONS & DOCK
+   ========================================================= */
+/* Selectors: .openweather-current-databox-captions,
+   .openweather-current-databox-values, .openweather-current-summarybox,
+   .openweather-forecast-summary, .openweather-forecast-temperature,
+   .openweather-forecast-day */
+.openweather-current-databox-captions,
+.openweather-current-databox-values,
+.openweather-current-summarybox,
+.openweather-forecast-summary,
+.openweather-forecast-temperature,
+.openweather-forecast-day {
+    color: #ff0000;
+}
+
+/* Pop_OS COSMIC Dock styling */
+/* Selector: .cosmic-dock #dock */
+.cosmic-dock #dock {
+    border-radius: 0px !important;
+    border: 0 !important;
+    background-color: #111517;
+    margin: 4px !important;
+}
+
+/* Keep the Ubuntu Dock background fully transparent */
+#dashtodockContainer.dashtodock #dash .dash-background {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+/* Selector: .cosmic-dock.extended #dock */
+.cosmic-dock.extended #dock {
+    border-radius: 0px !important;
+    margin: 0 !important;
+}
+
+/* Selector: .cosmic-dock.extended.side #dock */
+.cosmic-dock.extended.side #dock {
+    border-top-width: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+/* Selector: .cosmic-dock.extended.side.left #dock */
+.cosmic-dock.extended.side.left #dock {
+    border-left-width: 0 !important;
+}
+
+/* Selector: .cosmic-dock.extended.side.right #dock */
+.cosmic-dock.extended.side.right #dock {
+    border-right-width: 0 !important;
+}
+
+/* Selector: .cosmic-dock.extended.bottom #dock */
+.cosmic-dock.extended.bottom #dock {
+    border-bottom-width: 0 !important;
+    border-left-width: 0 !important;
+    border-right-width: 0 !important;
+}
+
+/* Selectors: .cosmic-dock .app-well-app:hover .overview-icon,
+   .cosmic-dock .app-well-app:focus .overview-icon,
+   .cosmic-dock .app-well-app:selected .overview-icon */
+.cosmic-dock .app-well-app:hover .overview-icon,
+.cosmic-dock .app-well-app:focus .overview-icon,
+.cosmic-dock .app-well-app:selected .overview-icon {
+    border-radius: 0px !important;
+}
+
+/* Dark variant overrides: dark surfaces with readable light panel text */
+#panel,
+#panel .panel-corner {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+#panel .panel-button,
+#panel .panel-button .clock,
+#panel .system-status-icon {
+    color: #ffffff !important;
+}
+
+#panel .panel-button:hover {
+    background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+#panel .panel-button:active {
+    background-color: transparent !important;
+}
+
+#panel .panel-button.clock-display:active,
+#panel .panel-button.clock-display:checked {
+    background-color: #000000 !important;
+    box-shadow: none !important;
+}
+
+.popup-menu,
+.popup-menu-content,
+.popup-menu-boxpointer,
+.quick-settings-panel,
+.quick-settings,
+.menu,
+.datemenu-popover,
+.date-menu-popover,
+.calendar-menu {
+    background-color: #111111 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.popup-menu-item:hover {
+    background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+.quick-settings-system-item,
+.quick-settings-system-item > StButton,
+.icon-button {
+    background-color: #222222 !important;
+    border-color: #555555 !important;
+}
+
+.quick-settings-system-item:hover,
+.icon-button:hover {
+    background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+.battery-item,
+.quick-toggle-battery,
+.quick-toggle,
+.quick-toggle-menu {
+    background-color: #222222 !important;
+    border-color: #555555 !important;
+}
+
+.quick-toggle:hover {
+    background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+.quick-toggle-arrow,
+.quick-toggle:checked .quick-toggle-arrow {
+    background-color: #222222 !important;
+    border-left-color: #555555 !important;
+}
+
+.quick-toggle:checked,
+.quick-toggle:active,
+.quick-toggle.checked {
+    background-color: #222222 !important;
+    border-color: #555555 !important;
+}
+
+/* Keep the active Wi-Fi submenu divider transparent instead of accent green */
+.quick-toggle-has-menu:checked .quick-toggle-separator {
+    background-color: transparent !important;
+}
+
+.quick-toggle:checked StLabel,
+.quick-toggle.checked StLabel,
+.quick-toggle:checked .quick-toggle-title,
+.quick-toggle.checked .quick-toggle-title,
+.quick-toggle:checked .quick-toggle-subtitle,
+.quick-toggle.checked .quick-toggle-subtitle {
+    color: #ffa500 !important;
+}
+
+.slider {
+    -barlevel-background-color: #555555;
+    -barlevel-active-background-color: #da3d2f;
+}
+
+/* Darken calendar, date-menu cards, and notification content surfaces */
+#calendarArea,
+.datemenu-calendar-column,
+.datemenu-displays-box,
+.calendar,
+.datemenu-today-button,
+.events-button,
+.world-clocks-button,
+.weather-button,
+.events-button .events-box .events-list .event-box,
+.message-list,
+.message,
+.message-content {
+    background-color: #111111 !important;
+}
+
+/* Use dark tiles for dates and replace the default bright today/event artwork */
+.calendar .calendar-day,
+.calendar .calendar-day-heading,
+.calendar .calendar-week-number,
+.calendar .calendar-month-header .calendar-month-label {
+    background-color: #222222 !important;
+    color: #ff0000 !important;
+}
+
+/* Dark date-menu navigation and notification controls; use orange labels */
+.calendar .calendar-month-header .pager-button,
+.message-list-controls .message-list-clear-button,
+.message .message-header .message-close-button {
+    background-color: #222222 !important;
+    color: #ffa500 !important;
+}
+
+.calendar .calendar-month-header .pager-button StIcon,
+.message .message-header .message-close-button StIcon {
+    color: #ffa500 !important;
+}
+
+.calendar .calendar-month-header .pager-button:hover,
+.message-list-controls .message-list-clear-button:hover,
+.message .message-header .message-close-button:hover {
+    background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+.calendar .calendar-day.calendar-day-with-events {
+    background-image: none !important;
+    box-shadow: inset 0 -2px 0 #ffa500 !important;
+}
+
+.calendar .calendar-day.calendar-today,
+.calendar .calendar-day:selected,
+.calendar .calendar-day:active,
+.calendar .calendar-day:checked {
+    background-image: none !important;
+    background-color: #333333 !important;
+    box-shadow: inset 0 0 0 2px #ffa500 !important;
+    color: #ffa500 !important;
+}
+
+.calendar .calendar-day:hover,
+.calendar .calendar-month-header .pager-button:hover,
+.datemenu-today-button:hover {
+    background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+.events-button .events-box .events-list .event-box,
+.datemenu-today-button,
+.world-clocks-button,
+.weather-button {
+    border: 1px solid #444444 !important;
+}
+
+/* Keep the orange hover overlay visible over selected and submenu controls */
+#panel .panel-button:hover,
+#panel .panel-button:active:hover,
+#panel .panel-button.clock-display:checked:hover,
+.popup-menu-item:hover,
+.quick-settings-system-item:hover,
+.icon-button:hover,
+.quick-toggle:hover,
+.quick-toggle:checked:hover,
+.quick-toggle.checked:hover,
+.quick-toggle:active:hover,
+.quick-toggle-has-menu .quick-toggle-menu-button:hover,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked:hover,
+.calendar .calendar-day:hover,
+.calendar .calendar-day.calendar-today:hover,
+.calendar .calendar-day:selected:hover,
+.calendar .calendar-day:checked:hover,
+.calendar .calendar-month-header .pager-button:hover,
+.datemenu-today-button:hover,
+.message-list-controls .message-list-clear-button:hover,
+.message .message-header .message-close-button:hover {
+    background-color: rgba(255, 165, 0, 0.15) !important;
+}
+
+.screenshot-ui-window-selector-window:hover .screenshot-ui-window-selector-window-border {
+    border-color: rgba(255, 165, 0, 0.65) !important;
+}
+
+/* Keep the clock panel button hover transparent */
+#panel .panel-button.clock-display:hover,
+#panel .panel-button.clock-display:checked:hover,
+#panel .panel-button.clock-display:active:hover {
+    background-color: transparent !important;
+}
+
+/* Keep notifications restrained: orange titles, readable body text, no hover tint */
+.message,
+.message:second-in-stack,
+.message:lower-in-stack,
+.message:hover,
+.message:second-in-stack:hover,
+.message:lower-in-stack:hover {
+    background-color: #111111 !important;
+}
+
+.message .message-header {
+    color: #cccccc !important;
+}
+
+.message .message-header .message-source-title,
+.message .message-box .message-content .message-title {
+    color: #ffa500 !important;
+}
+
+.message .message-header .event-time {
+    color: #999999 !important;
+}
+
+.message .message-box .message-content,
+.message .message-box .message-content StLabel {
+    color: #f2f2f2 !important;
+}
+
+/* Keep checked split-toggle fills transparent instead of using the system accent green */
+.quick-toggle-has-menu:checked,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked:hover,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked:active,
+.quick-toggle-has-menu .quick-toggle-menu-button:checked:focus {
+    background-color: transparent !important;
+}
+
+.quick-toggle-has-menu:checked .quick-toggle-separator {
+    background-color: transparent !important;
+}
+
+/* Keep the action group transparent and give each utility button its own tile border */
+.quick-settings-system-item {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.quick-settings-system-item > StButton,
+.quick-settings-system-item .icon-button,
+.icon-button {
+    background-color: transparent !important;
+    border-color: #555555 !important;
+}
+
+.quick-settings-system-item:hover,
+.quick-settings-system-item > StButton:hover,
+.quick-settings-system-item .icon-button:hover,
+.icon-button:hover {
+    background-color: transparent !important;
+}
+
+.quick-settings-system-item > StButton:hover,
+.quick-settings-system-item .icon-button:hover,
+.icon-button:hover {
+    border-color: #ffa500 !important;
+}
